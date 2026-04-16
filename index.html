@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Still Waters Tech | Steadfast Care</title>
+  <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Classical Contemplative Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+  class="selection:bg-[color:var(--ink)] selection:text-[color:var(--canvas)] antialiased bg-[color:var(--canvas)] text-[color:var(--ink)]">
+
+  <!-- Fixed Museum Frame (Desktop) -->
+  <div
+    class="hidden lg:block fixed top-0 left-0 bottom-0 w-24 binding-right bg-[color:var(--canvas)] z-50 flex flex-col items-center py-12 justify-between">
+    <img src="assets/images/logo.svg" alt="Still Waters Tech Logo" class="w-16 h-16 opacity-90 mx-auto"
+      style="filter: brightness(0.2);">
+
+    <div class="vertical-text opacity-60 mb-12">
+      Est. &mdash; MMXXVI
+    </div>
+
+    <div class="vertical-text text-[color:var(--sand)] mt-12">
+      Psalm Twenty-Three
+    </div>
+  </div>
+
+  <!-- Mobile Header -->
+  <header
+    class="lg:hidden w-full px-6 py-8 flex justify-between items-center binding-bottom relative z-40 bg-[color:var(--canvas)]">
+    <img src="assets/images/logo.svg" alt="Still Waters Tech Logo" class="w-12 h-12" style="filter: brightness(0.2);">
+    <button id="menu-btn" class="p-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 8h16M4 16h16" />
+      </svg>
+    </button>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu"
+    class="fixed inset-0 z-[60] hidden bg-[color:var(--canvas)] flex flex-col items-center justify-center binding-left">
+    <button id="close-menu-btn" class="absolute top-8 right-8 p-3 text-[color:var(--ink)]">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-10 text-center editorial-heading text-4xl text-[color:var(--ink)] font-light">
+      <a href="#prologue" class="mobile-link italic">Prologue</a>
+      <a href="#capabilities" class="mobile-link italic">Capabilities</a>
+      <a href="#works" class="mobile-link italic">Clientele</a>
+      <a href="#contact" class="mobile-link mt-8 brass-button">Consult</a>
+    </nav>
+  </div>
+
+  <!-- Main Content Area offset by the sidebar -->
+  <main class="lg:ml-24 relative">
+
+    <!-- Top Navigation (Desktop) -->
+    <nav class="hidden lg:flex w-full justify-end items-center px-16 py-12 gap-12 absolute top-0 z-40">
+      <a href="#prologue" class="nav-link !text-[#F5F2E9]">Prologue</a>
+      <a href="#capabilities" class="nav-link !text-[#F5F2E9]">Capabilities</a>
+      <a href="#works" class="nav-link !text-[#F5F2E9]">Clientele</a>
+      <a href="#contact" class="nav-link !text-[color:var(--brass)] font-medium">Consult</a>
+    </nav>
+
+    <!-- Cinematic Full-Bleed Hero -->
+    <section class="relative w-full h-[90vh] md:h-screen flex flex-col items-center justify-center overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0 bg-[color:var(--ink)] overflow-hidden parallax-container">
+        <div class="absolute inset-0 bg-black/40 z-20 transition-opacity"></div> <!-- Overlay for text clarity -->
+        <div
+          class="parallax-bg absolute -top-[40%] bottom-0 -left-[10%] -right-[10%] bg-cover bg-bottom brightness-95 saturate-[0.8] z-10"
+          style="background-image: url('assets/images/Minding%20The%20Flock.JPG');"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-20 flex flex-col items-center text-center px-4 max-w-5xl mx-auto mt-12">
+        <span
+          class="font-sans text-[10px] uppercase tracking-[0.25em] text-[color:var(--brass)] mb-6 block hero-reveal">Steadfast
+          Care</span>
+        <h1
+          class="editorial-heading text-6xl md:text-8xl lg:text-[7.5rem] leading-[0.9] text-[#F5F2E9] drop-shadow-2xl font-normal mb-8 hero-reveal">
+          Still Waters Tech
+        </h1>
+        <div class="h-px w-24 bg-[color:var(--brass)] mb-8 hero-reveal"></div>
+        <p
+          class="font-sans font-light text-base md:text-lg leading-[1.9] text-[#F5F2E9] opacity-80 max-w-xl mx-auto hero-reveal">
+          I offer humble craftsmanship and enduring stability for complex digital systems.
+        </p>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div
+        class="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-4 opacity-70">
+        <span class="font-sans text-[10px] uppercase tracking-[0.25em] text-[#F5F2E9]">Discover</span>
+        <div class="w-px h-16 bg-gradient-to-b from-white/80 to-transparent"></div>
+      </div>
+    </section>
+
+    <!-- Prologue / Philosophy -->
+    <section id="prologue" class="py-32 px-8 lg:px-24 max-w-6xl relative">
+      <div class="flex flex-col md:flex-row gap-16 md:gap-24 relative z-10">
+        <div class="md:w-1/3 reveal-up">
+          <h2 class="editorial-heading text-4xl md:text-5xl leading-[1.1] text-[color:var(--ink)]">
+            Bearing the <span class="italic text-[color:var(--stillwater-slate)]">technical burden</span>, so you don't
+            have to.
+          </h2>
+          <div class="h-px w-full bg-[color:var(--binding-line)] mt-16 mb-8"></div>
+          <span class="font-serif text-3xl text-[color:var(--ink)] italic">Jordan Davis</span>
+        </div>
+
+        <div class="md:w-2/3 reading-column reveal-up">
+          <p class="font-sans font-light text-xl leading-[1.9] text-[color:var(--ink)] mb-12">
+            Technology should serve you quietly. I act as an honest guide in a complex digital valley, directly handling
+            your network integrations, website maintenance, and digital architecture so you can safely focus on what
+            matters most.
+          </p>
+          <div class="pl-8 border-l border-[color:var(--brass)] py-2">
+            <p class="font-serif italic text-2xl text-[color:var(--stillwater-slate)]">
+              "My Seventh-day Adventist faith drives me to approach every interaction with honesty and a commitment to
+              quality. I blend technical knowledge with practical solutions, always striving to do everything as if for
+              the Lord."
+            </p>
+            <span
+              class="block mt-4 font-sans text-[10px] uppercase tracking-[0.2em] text-[color:var(--ink)] opacity-60">Personal
+              Conviction</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Capabilities / Asymmetric Intersect -->
+    <section id="capabilities"
+      class="py-32 px-8 lg:px-0 relative bg-[color:var(--highland-green)] text-[color:var(--canvas)]">
+      <div class="max-w-6xl mx-auto flex flex-col lg:flex-row items-stretch">
+
+        <!-- Left Side Text -->
+        <div class="lg:w-1/2 lg:pr-24 lg:py-24 z-20">
+          <span
+            class="font-sans text-[10px] uppercase tracking-[0.25em] text-[color:var(--brass)] mb-6 block reveal-up">Expertise</span>
+          <h2 class="editorial-heading text-5xl md:text-7xl leading-tight mb-16 reveal-up">Humble<br /><span
+              class="italic opacity-80">Craftsmanship.</span></h2>
+
+          <div class="flex flex-col gap-16">
+            <div class="reveal-up border-l border-white/20 pl-8 relative">
+              <span
+                class="absolute -left-[1.3rem] top-1 bg-[color:var(--highland-green)] px-2 font-serif italic text-2xl text-[color:var(--brass)]">I.</span>
+              <h3 class="font-sans text-sm tracking-[0.2em] uppercase mb-4 opacity-90">Digital Architecture</h3>
+              <p class="font-sans font-light text-[0.9rem] leading-[1.9] opacity-70">
+                Designing highly organized technical foundations that bring order to complex operations. I establish
+                long-term scalability and peace of mind by building networks right the first time.
+              </p>
+            </div>
+
+            <div class="reveal-up border-l border-white/20 pl-8 relative">
+              <span
+                class="absolute -left-[1.5rem] top-1 bg-[color:var(--highland-green)] px-2 font-serif italic text-2xl text-[color:var(--brass)]">II.</span>
+              <h3 class="font-sans text-sm tracking-[0.2em] uppercase mb-4 opacity-90">Native Applications</h3>
+              <p class="font-sans font-light text-[0.9rem] leading-[1.9] opacity-70">
+                Crafting sophisticated, responsive applications. I balance clean historical aesthetics with flawless
+                modern performance to produce software that feels enduring.
+              </p>
+            </div>
+
+            <div class="reveal-up border-l border-white/20 pl-8 relative">
+              <span
+                class="absolute -left-[1.6rem] top-1 bg-[color:var(--highland-green)] px-2 font-serif italic text-2xl text-[color:var(--brass)]">III.</span>
+              <h3 class="font-sans text-sm tracking-[0.2em] uppercase mb-4 opacity-90">Enduring Support</h3>
+              <p class="font-sans font-light text-[0.9rem] leading-[1.9] opacity-70">
+                Untangling chaotic networks and reviving hardware to establish calm, reliable internal environments out
+                of unmanageable technical debt.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side Landscape (Framed Gallery) -->
+        <div class="lg:w-1/2 mt-20 lg:mt-0 relative flex justify-center lg:justify-end items-center">
+          <div
+            class="w-full h-[60vh] lg:h-[80vh] museum-matte overflow-hidden shadow-2xl z-10 bg-[color:var(--ink)] parallax-container">
+            <div
+              class="parallax-bg absolute -top-[30%] bottom-0 -left-[10%] -right-[10%] bg-cover bg-bottom brightness-[0.85] saturate-[0.9]"
+              style="background-image: url('assets/images/oxbow.jpg');"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Clientele -->
+    <section id="works" class="py-32 px-8 lg:px-32 max-w-7xl mx-auto relative binding-right">
+      <div class="flex flex-col items-center text-center mb-24 reveal-up">
+        <h2 class="editorial-heading text-5xl italic text-[color:var(--ink)]">Clientele</h2>
+        <div class="w-px h-16 bg-[color:var(--binding-line)] my-8"></div>
+        <p class="font-sans font-light text-sm max-w-md opacity-70 leading-[1.8]">
+          Organizations I have proudly assisted with structural guidance, digital presence, and steadfast support.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-x-24 gap-y-16">
+
+        <div class="reveal-up binding-top pt-8" data-reveal>
+          <a href="https://onpurposeya.com" target="_blank" rel="noopener noreferrer" class="group block">
+            <h3 class="editorial-heading text-3xl mb-3 group-hover:text-[color:var(--brass)] transition-colors">On
+              Purpose YA</h3>
+            <span
+              class="font-sans text-[10px] uppercase tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">Website
+              Maintenance</span>
+          </a>
+        </div>
+
+        <div class="reveal-up binding-top pt-8" data-reveal>
+          <a href="https://adventistmotorcycleministry.org" target="_blank" rel="noopener noreferrer"
+            class="group block">
+            <h3 class="editorial-heading text-3xl mb-3 group-hover:text-[color:var(--brass)] transition-colors">
+              Adventist Motorcycle Ministry</h3>
+            <span
+              class="font-sans text-[10px] uppercase tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">Website
+              Maintenance</span>
+          </a>
+        </div>
+
+        <div class="reveal-up binding-top pt-8" data-reveal>
+          <div class="group block cursor-default">
+            <h3 class="editorial-heading text-3xl mb-3 group-hover:text-[color:var(--brass)] transition-colors">ML
+              Solutions, Calhoun</h3>
+            <span
+              class="font-sans text-[10px] uppercase tracking-[0.2em] opacity-50 group-hover:opacity-100 transition-opacity">General
+              IT Support</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Consultation CTA & Footer Overlay -->
+    <section id="contact"
+      class="bg-[color:var(--ink)] text-[color:var(--canvas)] py-40 px-8 relative overflow-hidden flex flex-col items-center text-center">
+      <!-- Faint background artwork -->
+      <div class="absolute inset-0 bg-cover bg-center opacity-10"
+        style="background-image: url('assets/images/Minding%20The%20Flock.JPG');"></div>
+
+      <div class="relative z-10 max-w-2xl mx-auto reveal-up">
+        <img src="assets/images/logo.svg" alt="Colophon" class="w-16 h-16 mx-auto mb-10 opacity-70"
+          style="filter: invert(85%) sepia(30%) saturate(600%) hue-rotate(5deg) brightness(101%) contrast(85%);">
+        <h2 class="editorial-heading text-5xl md:text-7xl italic mb-10 leading-[1.1] text-[#F5F2E9]">
+          Let me carry<br />the technical burden.
+        </h2>
+        <a href="mailto:contact@stillwaterstech.org" class="brass-button mt-4">
+          Begin Conversation
+        </a>
+      </div>
+    </section>
+
+    <footer
+      class="bg-[color:var(--ink)] text-[color:var(--canvas)] binding-top border-white/10 py-10 px-8 text-center relative z-10 flex flex-col md:flex-row justify-between items-center text-[10px] uppercase tracking-[0.2em] font-sans opacity-50 gap-6">
+      <span>&copy; <span id="copyright-year">2026</span> Still Waters Tech</span>
+      <span>Psalm 23</span>
+      <a href="#top" class="hover:text-[color:var(--brass)] transition-colors">Return Top</a>
+    </footer>
+
+  </main>
+
+  <!-- JS Logic for reveals -->
+  <script src="main.js"></script>
+</body>
+
+</html>

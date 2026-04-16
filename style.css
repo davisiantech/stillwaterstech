@@ -1,0 +1,137 @@
+/* Classical Contemplative Aesthetic - Asymmetrical Gallery Edition */
+:root { 
+  /* 19th-Century Romanticism Palette */
+  --canvas: #F5F2E9; /* Parchment - Warm subtle off-white */
+  --ink: #2A2C2E; /* Valley Shadow - Rich charcoal */
+  --highland-green: #243B2A; /* Highland Green - Dark mossy green */
+  --stillwater-slate: #4F636E; /* Stillwater Slate - Deep muted blue-grey */
+  --brass: #C5A059; /* Gilded Brass - Soft aged gold */
+  
+  --binding-line: rgba(42, 44, 46, 0.2); /* Deep historical divider line */
+  --light-binding: rgba(245, 242, 233, 0.15); /* Divider on dark backgrounds */
+}
+
+/* Base Styles & Typography */
+html {
+  scroll-behavior: smooth;
+}
+
+body { 
+  font-family: 'Inter', system-ui, sans-serif; 
+  background-color: var(--canvas);
+  color: var(--ink);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-serif {
+  font-family: 'EB Garamond', serif;
+}
+
+.font-sans {
+  font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, .editorial-heading {
+  font-family: 'EB Garamond', serif;
+  font-weight: 400;
+}
+
+/* Gallery & Asymmetrical Utilities */
+
+.reading-column {
+  max-width: 55ch; /* Extremely constrained reading line for high elegance */
+}
+
+/* The vertical text element used for side nav or structural anchors */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+}
+
+/* Intersecting Museum Border - Mimics physical book mounting or matting */
+.museum-matte {
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05); /* deep shadow */
+}
+
+.museum-matte::before {
+  content: '';
+  position: absolute;
+  top: -10px; left: -10px; right: -10px; bottom: -10px;
+  border: 1px solid var(--binding-line);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Subtle Book-binding Lines */
+.binding-left { border-left: 1px solid var(--binding-line); }
+.binding-right { border-right: 1px solid var(--binding-line); }
+.binding-top { border-top: 1px solid var(--binding-line); }
+.binding-bottom { border-bottom: 1px solid var(--binding-line); }
+
+/* Overlapping Text Container */
+.overlap-container {
+  position: relative;
+  z-index: 20;
+  margin-top: -10vw; /* Pulls text up over an image element */
+}
+
+/* Elegant Buttons & Links */
+.brass-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3rem;
+  background-color: var(--brass);
+  color: var(--canvas);
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  text-decoration: none;
+  border: 1px solid var(--brass);
+}
+
+.brass-button:hover {
+  background-color: transparent;
+  color: var(--brass);
+  transform: translateY(-2px);
+}
+
+.nav-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.70rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--ink);
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover, .nav-link.active {
+  opacity: 1;
+}
+
+/* Animation Classes Used by JS */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.reveal-fade {
+  opacity: 0;
+}
+
+.image-reveal {
+  clip-path: inset(100% 0 0 0);
+}
