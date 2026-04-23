@@ -18,17 +18,3 @@ Still Waters Tech provides technology consulting, digital architecture, native a
 *   **Museum-Gallery Aesthetic:** Employs classic typography (EB Garamond, Inter) and carefully curated fine art to create a grounded, professional feel.
 *   **Responsive Design:** Fully responsive layout with a custom mobile menu and a unique asymmetrical desktop layout.
 *   **Scroll Animations:** Utilizes GSAP's ScrollTrigger for cinematic fade-ins, reveals, and parallax effects on background images.
-
-## Setup & Local Development
-
-To run this project locally, simply serve the directory using any local web server.
-
-For example, using Python 3:
-```bash
-python -m http.server 8000
-```
-Then navigate to `http://localhost:8000` in your web browser.
-
-## Deployment
-
-This site is composed entirely of static assets (HTML, CSS, JS, images) and can be hosted on any static file hosting service, such as GitHub Pages, Netlify, or Vercel.
