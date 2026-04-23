@@ -38,55 +38,65 @@
     }
   });
 
-  // GSAP Cinematic Scroll Reveal Animations
-  if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
+    // GSAP Cinematic Scroll Reveal Animations
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Global GSAP Defaults for performance
+      gsap.config({ force3D: true });
 
-    // Hero Initial Load Animation (No ScrollTrigger needed above the fold)
-    gsap.fromTo('.hero-reveal', 
-      { y: 30, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.8, stagger: 0.2, ease: 'power3.out', delay: 0.2 }
-    );
+      // Hero Initial Load Animation
+      gsap.fromTo('.hero-reveal', 
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.8, stagger: 0.2, ease: 'power3.out', delay: 0.2 }
+      );
 
-    // Hardware-accelerated CSS initialization guarantees no CSS jittering
-    gsap.set('.reveal-up', { y: 40, opacity: 0 });
+      // Hardware-accelerated CSS initialization
+      gsap.set('.reveal-up', { y: 40, opacity: 0 });
 
-    // GSAP Batching to handle elements streaming in simultaneously gracefully
-    ScrollTrigger.batch('.reveal-up', {
-      onEnter: (batch) => {
-        gsap.to(batch, {
-          y: 0,
-          opacity: 1,
-          duration: 1.5,
-          stagger: 0.15,
-          ease: 'power2.out',
-          overwrite: true
-        });
-      },
-      start: 'top 85%'
-    });
-    
-    // Hardware-accelerated cinematic pan on museum images
-    document.querySelectorAll('.parallax-container').forEach((container) => {
-      const bg = container.querySelector('.parallax-bg');
-      if (bg) {
-        gsap.to(bg, {
-          scrollTrigger: {
-            trigger: container,
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-          },
-          yPercent: 10, // Relaxed GPU-accelerated translation
-          ease: 'none'
-        });
-      }
-    });
-  }
+      // GSAP Batching to handle elements streaming in simultaneously gracefully
+      ScrollTrigger.batch('.reveal-up', {
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            y: 0,
+            opacity: 1,
+            duration: 1.5,
+            stagger: 0.15,
+            ease: 'power2.out',
+            overwrite: true,
+            force3D: true
+          });
+        },
+        start: 'top 85%'
+      });
+      
+      // Hardware-accelerated cinematic pan on museum images
+      document.querySelectorAll('.parallax-container').forEach((container) => {
+        const bg = container.querySelector('.parallax-bg');
+        if (bg) {
+          gsap.to(bg, {
+            scrollTrigger: {
+              trigger: container,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: true
+            },
+            yPercent: 10,
+            ease: 'none',
+            force3D: true
+          });
+        }
+      });
 
-  // Set copyright year safely
-  const copyrightYear = document.getElementById('copyright-year');
-  if (copyrightYear) {
-    copyrightYear.textContent = new Date().getFullYear();
-  }
+      // Ensure everything is calculated correctly after the window fully loads
+      window.addEventListener('load', () => {
+        ScrollTrigger.refresh();
+      });
+    }
+
+    // Set copyright year safely
+    const copyrightYear = document.getElementById('copyright-year');
+    if (copyrightYear) {
+      copyrightYear.textContent = new Date().getFullYear();
+    }
 })();
